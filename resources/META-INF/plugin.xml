@@ -46,6 +46,7 @@
     <fileTypeFactory implementation="rocks.blackcat.vcl.VCLFileTypeFactory"/>
     <lang.parserDefinition language="VCL" implementationClass="rocks.blackcat.vcl.VCLParserDefinition"/>
     <lang.syntaxHighlighterFactory language="VCL" implementationClass="rocks.blackcat.vcl.VCLSyntaxHighlighterFactory"/>
+    <colorSettingsPage implementation="rocks.blackcat.vcl.VCLColorSettingsPage"/>
 
     <!-- CodeInsight -->
     <lang.braceMatcher language="VCL" implementationClass="rocks.blackcat.vcl.codeinsight.VCLBraceMatcher"/>
