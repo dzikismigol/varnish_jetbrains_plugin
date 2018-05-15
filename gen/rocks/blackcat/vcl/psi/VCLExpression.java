@@ -17,9 +17,9 @@ public interface VCLExpression extends PsiElement {
   VCLFCall getFCall();
 
   @Nullable
-  VCLObject getObject();
+  VCLOperation getOperation();
 
   @Nullable
-  VCLOperation getOperation();
+  VCLVariable getVariable();
 
 }

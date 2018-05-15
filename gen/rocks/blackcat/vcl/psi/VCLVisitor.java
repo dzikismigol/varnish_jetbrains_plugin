@@ -27,11 +27,23 @@ public class VCLVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitBereq(@NotNull VCLBereq o) {
+    visitPsiElement(o);
+  }
+
+  public void visitBeresp(@NotNull VCLBeresp o) {
+    visitPsiElement(o);
+  }
+
   public void visitBuitlin(@NotNull VCLBuitlin o) {
     visitPsiElement(o);
   }
 
   public void visitCall(@NotNull VCLCall o) {
+    visitPsiElement(o);
+  }
+
+  public void visitClient(@NotNull VCLClient o) {
     visitPsiElement(o);
   }
 
@@ -67,6 +79,10 @@ public class VCLVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitHeader(@NotNull VCLHeader o) {
+    visitPsiElement(o);
+  }
+
   public void visitIfStatement(@NotNull VCLIfStatement o) {
     visitPsiElement(o);
   }
@@ -87,6 +103,10 @@ public class VCLVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitLocal(@NotNull VCLLocal o) {
+    visitPsiElement(o);
+  }
+
   public void visitLongString(@NotNull VCLLongString o) {
     visitPsiElement(o);
   }
@@ -96,6 +116,14 @@ public class VCLVisitor extends PsiElementVisitor {
   }
 
   public void visitNew(@NotNull VCLNew o) {
+    visitPsiElement(o);
+  }
+
+  public void visitNow(@NotNull VCLNow o) {
+    visitPsiElement(o);
+  }
+
+  public void visitObj(@NotNull VCLObj o) {
     visitPsiElement(o);
   }
 
@@ -127,7 +155,27 @@ public class VCLVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitRemote(@NotNull VCLRemote o) {
+    visitPsiElement(o);
+  }
+
+  public void visitReq(@NotNull VCLReq o) {
+    visitPsiElement(o);
+  }
+
+  public void visitReqTop(@NotNull VCLReqTop o) {
+    visitPsiElement(o);
+  }
+
+  public void visitResp(@NotNull VCLResp o) {
+    visitPsiElement(o);
+  }
+
   public void visitReturn(@NotNull VCLReturn o) {
+    visitPsiElement(o);
+  }
+
+  public void visitServer(@NotNull VCLServer o) {
     visitPsiElement(o);
   }
 
@@ -136,6 +184,10 @@ public class VCLVisitor extends PsiElementVisitor {
   }
 
   public void visitStatement(@NotNull VCLStatement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitStorage(@NotNull VCLStorage o) {
     visitPsiElement(o);
   }
 
@@ -160,6 +212,10 @@ public class VCLVisitor extends PsiElementVisitor {
   }
 
   public void visitValue(@NotNull VCLValue o) {
+    visitPsiElement(o);
+  }
+
+  public void visitVariable(@NotNull VCLVariable o) {
     visitPsiElement(o);
   }
 

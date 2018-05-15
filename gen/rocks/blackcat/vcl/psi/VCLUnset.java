@@ -8,6 +8,6 @@ import com.intellij.psi.PsiElement;
 public interface VCLUnset extends PsiElement {
 
   @NotNull
-  VCLObject getObject();
+  VCLVariable getVariable();
 
 }

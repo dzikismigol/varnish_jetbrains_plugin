@@ -8,9 +8,9 @@ import com.intellij.psi.PsiElement;
 public interface VCLSet extends PsiElement {
 
   @NotNull
-  VCLObject getObject();
+  VCLOperation getOperation();
 
   @NotNull
-  VCLOperation getOperation();
+  VCLVariable getVariable();
 
 }

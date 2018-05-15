@@ -96,8 +96,8 @@
   PURGE ::= 'purge'
   NEW ::= keyword_new OBJECT '=' OPERATION
   CALL ::= 'call' OBJECT
-  SET ::= 'set' OBJECT '=' (OPERATION)
-  UNSET ::= ('unset' | 'remove') OBJECT
+  SET ::= 'set' VARIABLE '=' (OPERATION)
+  UNSET ::= ('unset' | 'remove') VARIABLE
   SYNTHETIC ::= 'synthetic' (STRINGS | '(' STRINGS')') //Can't find a simple way to deal with it right now
 
   INLINE_C ::= 'C{' C_CONTENT '}C' {implements="rocks.blackcat.vcl.psi.VCLInlineCMixin"}
@@ -109,10 +109,10 @@
   private IF_INTERAL ::= CONDITION COMPOUND [ELSE]//{pin=1 recoverWhile=rc_recover}
   ELSE ::= ('else' (COMPOUND | IF_STATEMENT)) | ('elif' | 'elseif'| 'elsif') IF_INTERAL
   CONDITION ::= '(' EXPRESSION ')'
-  EXPRESSION ::= ('!' '(' EXPRESSION ')' |CONDITION | F_CALL | OPERATION | OBJECT | 'true' | 'false' ) [('&&' | '||' EXPRESSION) ]
+  EXPRESSION ::= ('!' '(' EXPRESSION ')' |CONDITION | F_CALL | OPERATION | VARIABLE | 'true' | 'false' ) [('&&' | '||' EXPRESSION) ]
   OPERATION ::= OPERATION_INTERNAL [([operator *] OPERATION_INTERNAL) *]
   OPERATION_INTERNAL ::= '(' OPERATION ')'| VALUE
-  VALUE ::= ['!'] (F_CALL|LITERAL|OBJECT)
+  VALUE ::= ['!'] (F_CALL|LITERAL|VARIABLE)
   //OPERATOR ::='!'|'%'|'&'|'+'|'*'|'-'|'\/'|'<'|'='|'>'|'~'|'=='|'<='
     //            |'>='|'<<'|'>>'|'*='|'-='|'+='|'\/='
   LITERAL ::= NETMASK | STRINGS | number | identifier | OBJECT | duration
@@ -128,9 +128,9 @@
   RETURN ::= 'return' '('( F_SYNTH | identifier ) ')'
 
   //VARIABLES
-  /*VARIABLE ::= BEREQ | BERESP | CLIENT | LOCAL | NOW | OBJ | REMOTE | REQ
+  VARIABLE ::= BEREQ | BERESP | CLIENT | LOCAL | NOW | OBJ | REMOTE | REQ
                 | REQ_TOP | RESP | SERVER | STORAGE |  OBJECT
-  //FOO ::= 'req.url'
+  //FOO ::= 'req.url'*/
   BEREQ ::= 'bereq'  ['.'   ('backend' | 'between_bytes_timeout' | 'body' | 'connect_timeout'
                             | 'first_byte_timeout' | HEADER | 'method' | 'proto'
                             | 'retries' |'uncacheable' | 'url' | 'xid'
@@ -140,8 +140,8 @@
                             | 'grace' | HEADER | 'keep' | 'proto' | 'reason' | 'status'
                             | 'storage_hint' | 'ttl' | 'uncacheable' | 'was_304'
                        )]
-  CLIENT ::= OBJECT// 'client.' ('identity' | 'ip')
-  LOCAL  ::= OBJECT //'local.ip'
+  CLIENT ::= 'client.' ('identity' | 'ip')
+  LOCAL  ::= 'local.ip'
   NOW ::= 'now'
   OBJ ::= 'obj.' ('age' | 'grace' | 'hits' | HEADER | 'keep' | 'proto' | 'reason'
                     | 'status' | 'ttl' | 'uncacheable')
@@ -155,7 +155,7 @@
   SERVER ::= 'server.' ('hostname' | 'identity' | 'ip')
   STORAGE ::= 'storage.' identifier '.' ('free_space' | 'used_space' | 'happy')
   HEADER ::= OBJECT //'http.' identifier
-*/
+
   //RETURN ::= 'return' '('('fail' | 'pipe' | 'restart' | 'pass' | F_SYNTH) ')'
 
   /*BACKEND_INTERNAL ::= '.host' '=' STRINGS ';'

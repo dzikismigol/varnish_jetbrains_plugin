@@ -14,6 +14,6 @@ public interface VCLValue extends PsiElement {
   VCLLiteral getLiteral();
 
   @Nullable
-  VCLObject getObject();
+  VCLVariable getVariable();
 
 }

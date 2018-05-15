@@ -40,8 +40,8 @@ public class VCLValueImpl extends ASTWrapperPsiElement implements VCLValue {
 
   @Override
   @Nullable
-  public VCLObject getObject() {
-    return findChildByClass(VCLObject.class);
+  public VCLVariable getVariable() {
+    return findChildByClass(VCLVariable.class);
   }
 
 }

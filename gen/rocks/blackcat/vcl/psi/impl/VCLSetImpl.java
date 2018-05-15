@@ -28,14 +28,14 @@ public class VCLSetImpl extends ASTWrapperPsiElement implements VCLSet {
 
   @Override
   @NotNull
-  public VCLObject getObject() {
-    return findNotNullChildByClass(VCLObject.class);
+  public VCLOperation getOperation() {
+    return findNotNullChildByClass(VCLOperation.class);
   }
 
   @Override
   @NotNull
-  public VCLOperation getOperation() {
-    return findNotNullChildByClass(VCLOperation.class);
+  public VCLVariable getVariable() {
+    return findNotNullChildByClass(VCLVariable.class);
   }
 
 }

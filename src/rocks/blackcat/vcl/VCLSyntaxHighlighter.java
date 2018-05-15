@@ -10,6 +10,8 @@ import com.intellij.psi.tree.IElementType;
 import rocks.blackcat.vcl.psi.VCLTypes;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.psi.tree.TokenSet;
+
+import static com.intellij.openapi.editor.DefaultLanguageHighlighterColors.PREDEFINED_SYMBOL;
 import static rocks.blackcat.vcl.psi.VCLTypes.*;
 
 import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey;
@@ -29,6 +31,8 @@ public class VCLSyntaxHighlighter extends SyntaxHighlighterBase {
             createTextAttributesKey("VCL_KEYWORDS", DefaultLanguageHighlighterColors.KEYWORD);
     public static final TextAttributesKey STRING =
             createTextAttributesKey("VCL_STRING", DefaultLanguageHighlighterColors.STRING);
+    public static final TextAttributesKey GLOBAL_VARIABLE =
+            createTextAttributesKey("VCL_GLOBAL_VARIABLE", DefaultLanguageHighlighterColors.GLOBAL_VARIABLE);
     public static final TextAttributesKey OPERATOR =
             createTextAttributesKey("VCL_OPERATOR", DefaultLanguageHighlighterColors.OPERATION_SIGN);
     public static final TextAttributesKey CURLIES =
@@ -47,6 +51,7 @@ public class VCLSyntaxHighlighter extends SyntaxHighlighterBase {
     private static final TextAttributesKey[] ACL_KEYS = new TextAttributesKey[]{ACL};
     private static final TextAttributesKey[] KEYWORD_KEYS = new TextAttributesKey[]{KEYWORD};
     private static final TextAttributesKey[] STRING_KEYS = new TextAttributesKey[]{STRING};
+    private static final TextAttributesKey[] PREDEFINED_SYMBOL_KEYS = new TextAttributesKey[]{PREDEFINED_SYMBOL};
     private static final TextAttributesKey[] OPERATOR_KEYS = new TextAttributesKey[]{OPERATOR};
     private static final TextAttributesKey[] CURLIES_KEYS = new TextAttributesKey[]{CURLIES};
     private static final TextAttributesKey[] PARANTHESES_KEYS = new TextAttributesKey[]{PARENTHESES};
@@ -93,8 +98,9 @@ public class VCLSyntaxHighlighter extends SyntaxHighlighterBase {
             return VALUE_KEYS;
         } else if (tokenType.equals(VCLTypes.BLOCK_COMMENT) || tokenType.equals(VCLTypes.LINE_COMMENT)) {
             return COMMENT_KEYS;
-        }
-        else if (tokenType.equals(TokenType.BAD_CHARACTER)) {
+        } else if (tokenType.equals(VCLTypes.BEREQ) || tokenType.equals(VCLTypes.BERESP) || tokenType.equals(VCLTypes.REQ) || tokenType.equals(VCLTypes.OBJ)) {
+            return PREDEFINED_SYMBOL_KEYS;
+        } else if (tokenType.equals(TokenType.BAD_CHARACTER)) {
             return BAD_CHAR_KEYS;
         } else if (tokenType.equals(VCLTypes.ACL_ENTRY)){
             return ACL_KEYS;

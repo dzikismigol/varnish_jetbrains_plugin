@@ -28,8 +28,8 @@ public class VCLUnsetImpl extends ASTWrapperPsiElement implements VCLUnset {
 
   @Override
   @NotNull
-  public VCLObject getObject() {
-    return findNotNullChildByClass(VCLObject.class);
+  public VCLVariable getVariable() {
+    return findNotNullChildByClass(VCLVariable.class);
   }
 
 }
